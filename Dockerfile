@@ -103,8 +103,7 @@ RUN ln -sf \
 	&& chown -R root:root /root/.ssh \
 	&& chmod 700 /root/.ssh \
 	&& chmod 600 /root/.ssh/* 
-=======
-		/usr/{bin/healthcheck,sbin/{scmi,sshd-{bootstrap,wrapper},system-{timezone,timezone-wrapper}}}
+	&& chmod 700 /usr/{bin/healthcheck,sbin/{scmi,sshd-{bootstrap,wrapper},system-{timezone,timezone-wrapper}}}
 
 
 EXPOSE 22
