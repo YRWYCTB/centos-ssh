@@ -1,7 +1,30 @@
+文件编辑
+cd /centos-ssh
+替换 /src/.ssh/authorized_keys文件
+[root@bogon .ssh]# pwd
+/home/tian/centos-ssh/src/root/.ssh
+[root@bogon .ssh]# ls
+authorized_keys
+生产秘钥
+ssh-keygen
+cat ~/.ssh/id_rsa.pub 
+替换
+cat ~/.ssh/id_rsa.pub > authorized_keys
+打包
+docker build -t zst/centos76:latest .
+
+创建docker网络
 docker network create --subnet=172.18.0.0/16 zstnet
 
+启动容器
 docker run -d --privileged -v /data/ddata/dzst150:/data -v /data/ddata/dfile:/dfile -p1050:22  --net zstnet --ip 172.18.0.150 --cap-add=NET_ADMIN  --name dzst150 -h dzst150 zst/centos76
 
 docker run -d --privileged -v /data/ddata/dzst151:/data -v /data/ddata/dfile:/dfile -p1051:22  --net zstnet --ip 172.18.0.151 --cap-add=NET_ADMIN  --name dzst151 -h dzst151 zst/centos76
 
 docker run -d --privileged -v /data/ddata/dzst152:/data -v /data/ddata/dfile:/dfile -p1052:22  --net zstnet --ip 172.18.0.152 --cap-add=NET_ADMIN  --name dzst152 -h dzst152 zst/centos76
+
+
+重启之后才能正常ssh root@dzst150
+docker restart dzst150
+docker restart dzst151
+docker restart dzst152
