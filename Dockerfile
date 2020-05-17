@@ -31,7 +31,6 @@ RUN rpm --rebuilddb \
 		openssh-server-7.4p1-21.el7 \
 		openssl-1.0.2k-19.el7 \
 		python-setuptools-0.9.8-7.el7 \
-		sudo-1.8.23-3.el7 \
 		glibc-common \
 		vim \
 		tree \
@@ -41,9 +40,8 @@ RUN rpm --rebuilddb \
 		iproute \
 		net-tools \
 		wget \
-		yum-plugin-versionlock-1.1.31-50.el7 \
-		sudo-1.8.23-4.el7 \
-		yum-plugin-versionlock-1.1.31-52.el7 \
+		yum-plugin-versionlock \
+		sudo \
 
 	&& yum versionlock add \
 		inotify-tools \
