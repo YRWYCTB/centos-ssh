@@ -32,7 +32,13 @@ docker run -d --privileged -v /data2/ddata/dzst160:/data -v /data2/ddata/dfile:/
 
 
 docker run -d --privileged -v /data/ddata/dzst151:/data -v /data/ddata/dfile151:/opt -p1051:22  --net zstnet --ip 172.18.0.151 --cap-add=NET_ADMIN  --name dzst151-new -h dzst151 zst/centos76
-重启之后才能正常ssh root@dzst150
+
+重启之后才能正常
+
+ssh root@dzst150
+
 docker restart dzst150
+
 docker restart dzst151
+
 docker restart dzst152
