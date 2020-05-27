@@ -26,7 +26,12 @@ docker run -d --privileged -v /data/ddata/dzst152:/data -v /data/ddata/dfile:/df
 另一种命令启动容器
 docker run -itd --privileged -v /data/ddata/dzst152:/data -v /data/ddata/dfile:/dfile -p1052:22  --net zstnet --ip 172.18.0.152 --cap-add=NET_ADMIN  --name dzst152 -h dzst152 zst/centos76 /usr/sbin/init
 
+docker run -d --privileged -v /data2/ddata/dzst152:/data -v /data2/ddata/dfile:/ -p1052:22  --net zstnet --ip 172.18.0.152 --cap-add=NET_ADMIN  --name dzst152-new -h dzst152 zst/centos76
 
+docker run -d --privileged -v /data2/ddata/dzst160:/data -v /data2/ddata/dfile:/opt -p1060:22  --net zstnet --ip 172.18.0.160 --cap-add=NET_ADMIN  --name dzst160-new -h dzst160 zst/centos76
+
+
+docker run -d --privileged -v /data/ddata/dzst151:/data -v /data/ddata/dfile151:/opt -p1051:22  --net zstnet --ip 172.18.0.151 --cap-add=NET_ADMIN  --name dzst151-new -h dzst151 zst/centos76
 重启之后才能正常ssh root@dzst150
 docker restart dzst150
 docker restart dzst151
